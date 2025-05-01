@@ -1,5 +1,5 @@
 
-# Apache Airflow — Practical Guide for ML/ETL Pipelines
+# Apache Airflow Practical Guide for ML/ETL Pipelines
 ![Pipeline Image](https://miro.medium.com/v2/resize:fit:1400/1*jivo14jfpYH6O_cPb6CuHg.png)
 [Source: Medium – Orchestrating Machine Learning Experiments for MLOps Using Apache Airflow](https://medium.com/analytics-vidhya/orchestrating-machine-learning-experiments-for-mlops-using-apache-airflow-dcbc0bab3801)
 
