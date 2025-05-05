@@ -537,7 +537,7 @@ project/
 -   TaskFlow API for cleaner DAGs
 -   Unit tests for transformation steps
 -   Data validation tasks
--   Use Docker and DockerOperator for reproducible environments
+-   Use Docker for reproducible environments
 -   Performance Monitoring
 
 
