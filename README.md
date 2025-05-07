@@ -262,7 +262,7 @@ default_args = {
 
 ```
 
-Email is an important part of monitoring our pipelines. While tools like Prometheus and Grafana offer more advanced options, email alerts are simpler to configure. Setting up email requires configuring an SMTP server. One important note: if you're using Outlook or Gmail for testing, you can't use your regular password—you’ll need to generate an app-specific password instead.
+Email is an important part of monitoring our pipelines. While tools like Prometheus and Grafana offer more advanced options, email alerts are simpler to configure. Setting up email requires configuring an SMTP server. One important note: if you're using Outlook or Gmail for testing, you can't use your regular passwordyou’ll need to generate an app-specific password instead.
 
 ### Python Functions
 
@@ -296,11 +296,11 @@ def extract_ratings(**kwargs):
 
 ### DAG Definition
 
-Now that we've defined our Python functions and set the default parameters for Airflow, you might wonder—who actually calls these functions? How do they interact with each other? This is where DAGs come in. It's time to create our DAG—or multiple DAGs, depending on the use case.
+Now that we've defined our Python functions and set the default parameters for Airflow, you might wonderwho actually calls these functions? How do they interact with each other? This is where DAGs come in. It's time to create our DAGor multiple DAGs, depending on the use case.
 
 ```python
 with DAG(
-    dag_id='ML_data_pipeline1', #  Unique name for DAG — shown in the Airflow UI must be unique for scheduler 
+    dag_id='ML_data_pipeline1', #  Unique name for DAG  shown in the Airflow UI must be unique for scheduler 
     default_args=default_args, # If we define additional arguments later, we can inherit these defaults applied to all tasks in the DAG.
     description='ETL pipeline for IMDB dataset', #  Short description of the DAG (shown in UI tooltips).
     schedule_interval=None, # This DAG will only run manually. (No automatic triggering) it is only testing we can @daily etc.
@@ -390,7 +390,7 @@ extract_titles_task >> titles_file_sensor
 
 ## Running and Monitoring Airflow
 
-Now it’s time to run our DAG. First, set up Apache Airflow—you can follow the official guide [here](https://airflow.apache.org/docs/apache-airflow/stable/start.html). Even though setting the `AIRFLOW_HOME` folder is technically optional, it’s a good idea to define it explicitly in a specific directory.
+Now it’s time to run our DAG. First, set up Apache Airflowyou can follow the official guide [here](https://airflow.apache.org/docs/apache-airflow/stable/start.html). Even though setting the `AIRFLOW_HOME` folder is technically optional, it’s a good idea to define it explicitly in a specific directory.
 
 Once you start running your DAGs, another important point becomes clear: Airflow is more than just a Python library. Using a virtual environment is strongly recommended to avoid dependency issues.
 
@@ -446,7 +446,7 @@ Another useful command is for checking DAG import errors. If there are issues wh
 airflow dags list-import-errors
 ``` 
 Now let’s select our DAG, `"ML_data_pipeline1"`.  
-On the left side, you'll see a matrix of tasks and runs, organized by date and color-coded. You might notice that some blocks appear longer than others—this is because the visual also represents the duration of each task.
+On the left side, you'll see a matrix of tasks and runs, organized by date and color-coded. You might notice that some blocks appear longer than othersthis is because the visual also represents the duration of each task.
 
 On the right side, you'll find columns that provide general information about the DAG.
 
@@ -463,17 +463,17 @@ On the Task Duration page, you can compare the runtime of different tasks across
 <p align="center"><em>Figure 4: Task duration trends visualized for performance monitoring.</em></p>
 
 ---
-Now let’s switch to the Graph View—one of the most intuitive and visual ways to understand our project at a high level.
+Now let’s switch to the Graph Viewone of the most intuitive and visual ways to understand our project at a high level.
 
 ![Pipeline Image](https://github.com/mtech00/MLE-24-25/blob/main/module-4-pipelines/figures/1.png?raw=true)
 <p align="center"><em>Figure 1: DAG graph view showing task structure</em></p>
 
 ---
 
-So far, we’ve explored DAG-level information—but what about individual tasks?  
+So far, we’ve explored DAG-level informationbut what about individual tasks?  
 In Graph View, you can click on any task to access its details. Once clicked, you’ll be taken to a new page with options like **Logs** and **XComs**.
 
-Here, we're viewing the **Logs** tab. This is where you can see the output from your task runs—especially useful since we used the `logger` in our Python functions.
+Here, we're viewing the **Logs** tab. This is where you can see the output from your task runsespecially useful since we used the `logger` in our Python functions.
 
 ![Pipeline Image](https://github.com/mtech00/MLE-24-25/blob/main/module-4-pipelines/figures/5.png?raw=true)
 <p align="center"><em>Figure 5: Logs of a specific task instance with runtime and exception details.</em></p>
